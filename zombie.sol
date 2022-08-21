@@ -16,7 +16,7 @@ contract ZombieFactory {                        //establish contract
 
     function createZombie(string memory _name, uint _dna) public {      //public function that puts zombies in array
         uint id = zombies.push(Zombie(_name, _dna)) - 1;                //array.push - 1 to get the last zombie we just created
-        emit NewZombie(id, _name, _dna)                                 //fire off event taking all params
+        emit NewZombie(id, _name, _dna);                                 //fire off event taking all params
     }
 
     function _generateRandomDna(string memory _str) private view returns(uint){     //private function that generates a random dna for zombie
