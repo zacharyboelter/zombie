@@ -19,6 +19,8 @@ contract ZombieFactory {                        //establish contract
 
     function createZombie(string memory _name, uint _dna) public {      //public function that puts zombies in array
         uint id = zombies.push(Zombie(_name, _dna)) - 1;                //array.push - 1 to get the last zombie we just created
+        zombieToOwner[id] = msg.sender;                                 //take the id and store msg.sender under it
+        ownerZombieCount[msg.sender]++;                                 //increment count of zombie by +1
         emit NewZombie(id, _name, _dna);                                 //fire off event taking all params
     }
 
