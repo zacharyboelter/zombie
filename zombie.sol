@@ -14,6 +14,9 @@ contract ZombieFactory {                        //establish contract
 
     Zombie[] public zombies;                    //create array to store the zombies we create later
 
+    mapping (uint => address) public zombieToOwner;                     //mapping to show who zombie belongs to
+    mapping (address => uint) ownerZombieCount;                         //mapping to see how many zombies owner has
+
     function createZombie(string memory _name, uint _dna) public {      //public function that puts zombies in array
         uint id = zombies.push(Zombie(_name, _dna)) - 1;                //array.push - 1 to get the last zombie we just created
         emit NewZombie(id, _name, _dna);                                 //fire off event taking all params
