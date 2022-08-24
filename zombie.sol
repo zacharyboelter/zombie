@@ -31,7 +31,9 @@ contract ZombieFactory {                        //establish contract
 
     function createRandomZombie(string memory _name) public{            //public function that gives zombie dna and name
         uint randDna = _generateRandomDna(_name);
-        require(ownerZombieCount[msg.sender] == 0);                     //make sure the owner has 0 zombies so they cannot spawn indefinite amount
+        require(ownerZombieCount[msg.sender] == 0);                     //make sure the owner has 0 zombies so they cannot spawn indefinite amount  
         createZombie(_name, randDna);
     }
 }
+
+//pick up on the morrow
